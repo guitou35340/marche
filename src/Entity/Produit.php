@@ -9,6 +9,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ProduitRepository")
+ * @Vich\Uploadable
  */
 class Produit
 {
@@ -35,22 +36,32 @@ class Produit
     private $unite;
 
     /**
-     * @Vich\UploadableField(mapping="product_image", fileNameProperty="imageName")
+     * @Vich\UploadableField(mapping="product_image", fileNameProperty="filename")
      * @var File|null
      */
     private $imageFile;
 
     /**
-     * @ORM\Column(type="string")
-     *
      * @var string|null
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $filename;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $updated_at;
+
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $description;
+
+    /**
+     * @ORM\Column(type="float", nullable=true)
+     */
+    private $prix;
 
 
     public function getId(): ?int
@@ -141,6 +152,31 @@ class Produit
     public function setUpdatedAt(\DateTimeInterface $updated_at): self
     {
         $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getPrix(): ?float
+    {
+        return $this->prix;
+    }
+
+    public function setPrix(?float $prix): self
+    {
+        $this->prix = $prix;
 
         return $this;
     }

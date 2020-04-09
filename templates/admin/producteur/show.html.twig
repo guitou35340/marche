@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Producteur{% endblock %}
+
+{% block body %}
+    <h1>Producteur</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ producteur.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ producteur.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ producteur.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Mail</th>
+                <td>{{ producteur.mail }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ producteur.telephone }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('producteur_index') }}">back to list</a>
+
+    <a href="{{ path('producteur_edit', {'id': producteur.id}) }}">edit</a>
+
+    {{ include('admin/producteur/_delete_form.html.twig') }}
+{% endblock %}

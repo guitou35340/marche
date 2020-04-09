@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Produit index{% endblock %}
+
+{% block body %}
+<div class="jumbotron mt-5">
+    <h1>Produit index</h1>
+    <hr>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Unite</th>
+                <th>Filename</th>
+                <th>Updated_at</th>
+                <th>Prix</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for produit in produits %}
+            <tr>
+                <td>{{ produit.id }}</td>
+                <td>{{ produit.nom }}</td>
+                <td>{{ produit.unite }}</td>
+                <td> {% if produit.filename %}
+                        <img src="/images/products/{{ produit.filename }}" alt="image de {{ produit.nom }}" style="width: 286px;height: 218px " >
+                    {% endif %}</td>
+                <td>{{ produit.updatedAt ? produit.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ produit.prix }}</td>
+                <td>
+                    <a href="{{ path('produit_show', {'id': produit.id}) }}">show</a>
+                    <a href="{{ path('produit_edit', {'id': produit.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('produit_new') }}" class="btn btn-success">Nouveau produit</a>
+</div>
+{% endblock %}

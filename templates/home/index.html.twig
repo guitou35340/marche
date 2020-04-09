@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Producteurs marché de Dompierre-sur-Mer{% endblock %}
+
+{% block body %}
+<div class="jumbotron m-5">
+    <h1 class="text-center m-4">Marché de Dompierre-sur-Mer</h1>
+    <h4 class="text-center">Le marché du dimanche reste ouvert sous forme de drive</h4>
+
+    <p class="m-4"> Pendant cette période de confinement ce site internet est mis à disposition afin de permettre de voir les produits, les prix qui peuvent être commander auprès de nos commerçants préférés.</p>
+<p class="m-4"> Afin de voir la liste des producteurs veuillez cliquer sur le bouton "Liste des producteurs"<br></p>
+  <div class="m-4 text-center">  <a href="{{ path('home_index') }}" class="btn btn-success "> Liste des producteurs</a></div>
+
+    <p class="m-4">A la fin de la liste des produits vous trouverez les informations de contact pour joindre le commerçant </p>
+
+    <div class="text-center">
+        <img src="{{ asset('images/bg.png') }}" alt="">
+    </div>
+    </div>
+
+{% endblock %}

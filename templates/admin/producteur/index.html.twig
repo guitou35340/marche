@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des producteurs{% endblock %}
+
+{% block body %}
+    <h1>Producteur</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Prenom</th>
+                <th scope="col">Mail</th>
+                <th scope="col">Telephone</th>
+                <th scope="col">actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for producteur in producteurs %}
+            <tr>
+                <td>{{ producteur.id }}</td>
+                <td>{{ producteur.nom }}</td>
+                <td>{{ producteur.prenom }}</td>
+                <td>{{ producteur.mail }}</td>
+                <td>{{ producteur.telephone }}</td>
+                <td>
+                    <a href="{{ path('producteur_show', {'id': producteur.id}) }}">show</a>
+                    <a href="{{ path('producteur_edit', {'id': producteur.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('producteur_new') }}" class="btn btn-primary">Create new</a>
+{% endblock %}

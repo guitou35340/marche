@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des produits de {{ producteur.nom }} {% endblock %}
+
+{% block body %}
+
+    <div class="jumbotron mt-5">
+        <p class="text-center"> Voir les produits sous formes de <a href="{{ path('home_show',{'id':producteur.id}) }}" class="btn btn-primary"> carte </a>  </p>
+        <h1 class="text-center m-5">Liste des produits de {{ producteur.nom }} </h1>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Nom produit</th>
+                <th scope="col">prix</th>
+                <th scope="col">description</th>
+            </tr>
+            </thead><tbody>
+            {% for produit in produits %}
+                    <tr>
+                        <th>{{ produit.nom }}</th>
+                        {% if produit.prix %}
+                            <td>{{produit.prix}} {{ produit.unite }}</td>
+                            {% else %}
+                                <td>Non indiqué {{ produit.unite }}</td>
+                        {% endif %}
+                        {% if produit.description %}
+                        <td>{{produit.description}}</td>
+                            {% else %}
+                            <td>Pas de description</td>
+                        {% endif %}
+                    </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+        </div>
+
+
+
+    <div class="jumbotron m-3">
+        <h1 class="text-center m-4">Contacter {{ producteur.prenom }} {{ producteur.nom }}</h1>
+        <div class="container">
+        <p class="text-center">   Afin de faciliter aux commerçants la prise de commande merci de préparer au préalable votre liste de produit</p>
+        {% if producteur.contact == 'mail' %}
+            Merci de me contacter en priorité par mail à l'adresse :
+            <b> <a href="mailto:{{ producteur.mail }}">{{ producteur.mail }}</a></b>
+            <br>
+            Si besoin mon numéro de téléphone est le <b> {{ producteur.telephone }}</b>
+        {% else %}
+            Merci de me contacter en priorité par téléphone au
+            <b>{{ producteur.telephone }}</b>
+            <br>
+            Si besoin mon adresse mail est <b> <a href="mailto:{{ producteur.mail }}">{{ producteur.mail }}</a></b>
+        {% endif %}
+        </div>
+    </div>
+{% endblock %}

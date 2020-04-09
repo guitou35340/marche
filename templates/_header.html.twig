@@ -1,0 +1,38 @@
+<header >
+
+    <nav class="navbar  navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{{ path('home') }}">Accueil</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link " href="{{ path('home_index') }}">Liste des commerçants <span class="sr-only">(current)</span></a>
+                </li>
+                {% if is_granted('ROLE_USER') %}
+                    <li class="nav-item active">
+                        <a class="nav-link btn btn-secondary" href="{{ path('user_index') }}">Voir mes produits </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link btn btn-danger" href="{{ path('app_logout') }}">Se deconnecter </a>
+                    </li>
+                {% endif %}
+            </ul>
+
+
+        </div>
+        <ul class="navbar-nav">
+        <li class="nav-item active">
+            <a class="nav-link btn btn-success" href="{{ path('user_index') }}">Gérer mes produits </a>
+        </li>
+        </ul>
+        {% if is_granted('ROLE_USER') %}
+
+            Bonjour {{ app.user.nom }} {{ app.user.prenom }}
+
+        {% endif %}
+    </nav>
+
+
+</header>

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Producteur{% endblock %}
+
+{% block body %}
+    <h1>Edit Producteur</h1>
+
+    {{ include('admin/producteur/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('producteur_index') }}" class="btn btn-alert mt-2 ">back to list</a>
+
+    {{ include('admin/producteur/_delete_form.html.twig') }}
+{% endblock %}

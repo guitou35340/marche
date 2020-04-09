@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Producteurs marché de Dompierre-sur-Mer{% endblock %}
+
+{% block body %}
+
+    <h1 class="text-center m-5">Liste des producteurs du marché de Dompierre-sur-Mer</h1>
+    <div class="row justify-content-center">
+        {% for producteur in producteurs %}
+            <div class="col-sm-4 m-2 " >
+                <div class="card mt-3" style="width: 18rem;  height: 400px" >
+            {% if producteur.filename %}
+            <img src="/images/products/{{ producteur.filename }}" alt="image de {{ producteur.nom }}" style="height: 150px; width: 140px" class="m-auto " >
+                 {% else %}
+                    <svg class="bd-placeholder-img card-img-top" width="60%" height="160px" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
+                        <title>Placeholder</title>
+                        <rect width="100%" height="100%" fill="#868e96" />
+                        <text class="text-center" y="50%" x="30%">Pas d'image</text>
+                    </svg>
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title text-center">
+                            <b>   {{ producteur.nom }} - {{ producteur.prenom }} </b>
+                        </h5>
+                        <hr>
+                        <p class="card-text">
+                            {% if producteur.description %}
+                            {{ producteur.description }}
+                            {% endif %}
+                            <br>
+
+                        </p>
+                        <a href="{{ path('home_show',{'id':producteur.id}) }}" class="btn btn-primary md-5">
+                            <i class="fas fa-shopping-cart mr-1"></i>
+                            Voir la liste des produits
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        <div class="col-sm-4 m-3" >
+            <div class="card" style="width: 18rem;" >
+
+
+                <svg class="bd-placeholder-img card-img-top" width="100%" height="160px" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
+                    <title>Placeholder</title>
+                    <rect width="100%" height="100%" fill="#868e96" />
+                    <text class="text-center" y="50%" x="30%">Pas d'image</text>
+                </svg>
+
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <b>  Olivier JEAN </b>
+                    </h5>
+                    <hr>
+                    <p class="card-text">
+                        Commerçant de produits italiens <br>
+                        Voici le lien pour mon site internet <br>
+                        <a href="http://www.giani17.fr/" target="_blank" class="btn btn-primary md-5">
+                            Voir mes produits
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+{% endblock %}
