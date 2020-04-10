@@ -1,16 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Liste des produits de {{ producteur.nom }} {% endblock %}
+{% block title %}Liste des produits de {{ producteur.prenom }} {% endblock %}
 
 {% block body %}
+    <div class="container-fluid">
     <div class="jumbotron mt-5">
         <p class="text-center"> Voir les produits sous formes de <a href="{{ path('home_showlist',{'id':producteur.id}) }}" class="btn btn-primary"> liste </a>  </p>
-        <h1 class="text-center m-5">Liste des produits de {{ producteur.nom }} </h1>
+        <h1 class="text-center m-5">Liste des produits de {{ producteur.prenom }} </h1>
 
         <div class="row justify-content-center">
             {% for produit in produits %}
-            <div class="col-sm-4 col-md-4 m-1 " style="width: 14rem; height: 400px">
-                <div class="card " style="width: 14rem; ">
+                <div class="col-sm-3 m-2 " style="min-width: 160px">
+                    <div class="card mt-3" style="min-width: 160px" >
                     <div class="card-header text-center">
                         <b>   {{ produit.nom }} </b>
                     </div>
@@ -45,7 +46,8 @@
         </div>
 
     </div>
-
+    </div>
+    <div class="container">
     <div class="jumbotron m-3">
         <h1 class="text-center m-4">Contacter {{ producteur.prenom }} {{ producteur.nom }}</h1>
      <p class="text-center">   Afin de faciliter aux commerçants la prise de commande merci de préparer au préalable votre liste de produit</p>
@@ -60,5 +62,6 @@
                             <br>
                             Si besoin mon adresse mail est  <b> <a href="mailto:{{ producteur.mail }}">{{ producteur.mail }}</a></b>
         {% endif %}
+    </div>
     </div>
 {% endblock %}

@@ -1,0 +1,7 @@
+User-agent: Googlebot
+User-agent: AdsBot-Google
+Disallow: /user
+Disallow: /producteur
+Disallow: /produits
+
+Sitemap: http://marchedompierresurmer.fr/sitemap.xml

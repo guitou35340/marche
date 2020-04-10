@@ -32,6 +32,17 @@ class HomeController extends AbstractController
     }
 
     /**
+     * @Route("/home/cafe", name="home_pascal")
+     */
+    public function cafepascal()
+    {
+        return $this->render('home/cafepascal.html.twig', [
+            'controller_name' => 'HomeController',
+
+        ]);
+    }
+
+    /**
      * @Route("/home", name="home_index")
      */
     public function producteurlist()

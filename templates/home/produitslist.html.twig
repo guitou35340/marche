@@ -6,7 +6,7 @@
 
     <div class="jumbotron mt-5">
         <p class="text-center"> Voir les produits sous formes de <a href="{{ path('home_show',{'id':producteur.id}) }}" class="btn btn-primary"> carte </a>  </p>
-        <h1 class="text-center m-5">Liste des produits de {{ producteur.nom }} </h1>
+        <h1 class="text-center m-5">Liste des produits de {{ producteur.prenom }} </h1>
 
         <table class="table">
             <thead>
@@ -20,14 +20,14 @@
                     <tr>
                         <th>{{ produit.nom }}</th>
                         {% if produit.prix %}
-                            <td>{{produit.prix}} {{ produit.unite }}</td>
+                            <td>{{produit.prix}} € {{ produit.unite }}</td>
                             {% else %}
-                                <td>Non indiqué {{ produit.unite }}</td>
+                                <td> {{ produit.unite }}</td>
                         {% endif %}
                         {% if produit.description %}
                         <td>{{produit.description}}</td>
                             {% else %}
-                            <td>Pas de description</td>
+                            <td></td>
                         {% endif %}
                     </tr>
             {% endfor %}
@@ -36,7 +36,7 @@
         </div>
 
 
-
+<div class="container">
     <div class="jumbotron m-3">
         <h1 class="text-center m-4">Contacter {{ producteur.prenom }} {{ producteur.nom }}</h1>
         <div class="container">
@@ -54,4 +54,5 @@
         {% endif %}
         </div>
     </div>
+</div>
 {% endblock %}

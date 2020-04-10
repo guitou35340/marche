@@ -3,12 +3,12 @@
 {% block title %}Producteurs marché de Dompierre-sur-Mer{% endblock %}
 
 {% block body %}
-
+<div class="container-fluid">
     <h1 class="text-center m-5">Liste des producteurs du marché de Dompierre-sur-Mer</h1>
     <div class="row justify-content-center">
         {% for producteur in producteurs %}
-            <div class="col-sm-4 m-2 " >
-                <div class="card mt-3" style="width: 18rem;  height: 400px" >
+            <div class="col-sm-3 m-2 " style="min-width: 160px; max-width: 18rem; height: 350px">
+                <div class="card mt-3" style="min-width: 160px; max-width: 18rem; height: 350px" >
             {% if producteur.filename %}
             <img src="/images/products/{{ producteur.filename }}" alt="image de {{ producteur.nom }}" style="height: 150px; width: 140px" class="m-auto " >
                  {% else %}
@@ -38,8 +38,8 @@
                 </div>
             </div>
         {% endfor %}
-        <div class="col-sm-4 m-3" >
-            <div class="card" style="width: 18rem;" >
+        <div class="col-sm-3 m-2 " style="min-width: 160px; max-width: 20rem">
+            <div class="card mt-3" style="min-width: 160px; max-width: 20rem" >
 
 
                 <svg class="bd-placeholder-img card-img-top" width="100%" height="160px" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
@@ -55,7 +55,7 @@
                     <hr>
                     <p class="card-text">
                         Commerçant de produits italiens <br>
-                        Voici le lien pour mon site internet <br>
+                        lien vers mon site internet <br>
                         <a href="http://www.giani17.fr/" target="_blank" class="btn btn-primary md-5">
                             Voir mes produits
                         </a>
@@ -63,8 +63,70 @@
                 </div>
             </div>
         </div>
+        <div class="col-sm-3 m-2 " style="min-width: 160px; max-width: 20rem">
+            <div class="card mt-3" style="min-width: 160px; max-width: 20rem" >
+
+
+                <svg class="bd-placeholder-img card-img-top" width="100%" height="160px" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
+                    <title>Placeholder</title>
+                    <rect width="100%" height="100%" fill="#868e96" />
+                    <text class="text-center" y="50%" x="30%">Pas d'image</text>
+                </svg>
+
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <b>  L'arbre Gourmand </b>
+                    </h5>
+                    <hr>
+                    <p class="card-text">
+                        Une envie de gourmandises pendant cette période particulière !!! <br>
+                        <a href="www.larbregourmand.fr" target="_blank" class="btn btn-primary md-5">
+                            Site internet
+                        </a>
+                    <hr>
+                        N'hésitez pas à passer vos commandes soit par SMS au <b>06 82 15 85 34</b> ,
+                        par mail à <a href="mailto:contact@larbregourmand.fr">contact@larbregourmand.fr</a> ou par Facebook L'arbre Gourmand.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- Partie pasccal torréfacteur-->
+        <div class="col-sm-3 m-2 " style="min-width: 160px; max-width: 19rem">
+            <div class="card mt-3" style="min-width: 160px; max-width: 19rem" >
+
+
+                <svg class="bd-placeholder-img card-img-top" width="100%" height="160px" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
+                    <title>Placeholder</title>
+                    <rect width="100%" height="100%" fill="#868e96" />
+                    <text class="text-center" y="50%" x="30%">Pas d'image</text>
+                </svg>
+
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <b> Cafés Pascal </b>
+                    </h5>
+                    <hr>
+                    <p class="card-text">
+                        Une envie de gourmandises pendant cette période particulière !!! <br>
+
+                        <a href="{{path('home_pascal')}}" class="btn btn-primary md-5">
+                            Voir les produits
+                        </a>
+                    <hr>
+                    Les commandes sont à passer de préférence par : <br>
+                    <ol>
+                        <li>Tel/SMS : <b>06.89.97.04.59</b></li>
+                        <li>Courriel : <a href="mailto:cafespascal@orange.fr">cafespascal@orange.fr</a></li>
+                        <li>Facebook <a href="https://www.facebook.com/cafespascal/"> <img src="/images/fb.png" alt=""></a></li>
+                    </ol>
+
+                    </p>
+                </div>
+            </div>
+        </div>
+
 
     </div>
-
+</div>
 
 {% endblock %}
