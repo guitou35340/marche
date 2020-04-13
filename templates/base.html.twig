@@ -1,9 +1,19 @@
 <!DOCTYPE html>
 <html lang="fr">
     <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XDSC3S8QSF"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-XDSC3S8QSF');
+        </script>
         <meta charset="UTF-8">
         <title>{% block title %}Marché de Dompierre sur Mer{% endblock %}</title>
-        <meta name="description" content="Marché de Dompierre-sur-Mer est ouvert tous les dimanche de 8h à 13h">
+        <meta name="description" content="Marché hebdomadaire de Dompierre-sur-Mer est ouvert tous les dimanche de 8h à 13h qui propose pas moins de 17 producteurs commerçants différents">
+        <meta name="keywords" content="marché hebdomadaire, Dompierre-sur-Mer, Marché Dompierre-sur-Mer, Marché drive, Drive Dompierre-sur-Mer, marché dimanche, marché charente-maritime, marché producteurs, marché commerçants">
         {% block stylesheets %}
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
             <link rel="stylesheet" href="{{asset('css/moncss.css')}}">

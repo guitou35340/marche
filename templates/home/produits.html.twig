@@ -4,64 +4,70 @@
 
 {% block body %}
     <div class="container-fluid">
-    <div class="jumbotron mt-5">
-        <p class="text-center"> Voir les produits sous formes de <a href="{{ path('home_showlist',{'id':producteur.id}) }}" class="btn btn-primary"> liste </a>  </p>
-        <h1 class="text-center m-5">Liste des produits de {{ producteur.prenom }} </h1>
+        <div class="jumbotron mt-5">
+            <p class="text-center"> Voir les produits sous formes de <a
+                        href="{{ path('home_showlist',{'id':producteur.id}) }}" class="btn btn-primary"> liste </a></p>
+            <h1 class="text-center m-5">Liste des produits de {{ producteur.prenom }} </h1>
 
-        <div class="row justify-content-center">
-            {% for produit in produits %}
-                <div class="col-sm-3 m-2 " style="min-width: 160px">
-                    <div class="card mt-3" style="min-width: 160px" >
-                    <div class="card-header text-center">
-                        <b>   {{ produit.nom }} </b>
-                    </div>
-                    {% if produit.filename %}
-                     <div>   <img src="/images/products/{{ produit.filename }}" alt="image de {{ produit.nom }}"  class="m-auto" style="height: 158px; width: 220px" ></div>
-                        {% else %}
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="160px" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#868e96" class="m-auto"/>
-                                <text class="text-center" y="50%" x="30%">Pas d'image</text>
-                            </svg>
-                    {% endif %}
-                    <div class="card-body">
-                        <h5 class="card-title text-center">
-                            {% if produit.prix %}
-                            {{produit.prix}} €
+            <div class="row justify-content-center">
+                {% for produit in produits %}
+                    <div class="col-3 m-2 " style="min-width: 160px">
+                        <div class="card mt-3" style="min-width: 160px">
+                            <div class="card-header text-center">
+                                <b>   {{ produit.nom }} </b>
+                            </div>
+                            {% if produit.filename %}
+                                <img src="/images/products/{{ produit.filename }}" alt="image de {{ produit.nom }}"
+                                          class="m-auto" style="height: 150px; width: 60%;display: block"
+                                     class="card-img-top " data-holder-rendered="true">
+                            {% else %}
+                                <svg class="bd-placeholder-img card-img-top" width="100%" height="160px"
+                                     xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
+                                     focusable="false" role="img" aria-label="Placeholder: Image cap">
+                                    <title>Placeholder</title>
+                                    <rect width="100%" height="100%" fill="#868e96" class="m-auto"/>
+                                    <text class="text-center" y="50%" x="30%">Pas d'image</text>
+                                </svg>
                             {% endif %}
-                            {{produit.unite}}
-                        </h5>
-                        <hr>
-                        <p class="card-text">
-                            {% if produit.description %}
-                                {{ produit.description }}
-                            {% endif %}
+                            <div class="card-body">
+                                <h5 class="card-title text-center">
+                                    {% if produit.prix %}
+                                        {{ produit.prix }} €
+                                    {% endif %}
+                                    {{ produit.unite }}
+                                </h5>
+                                <hr>
+                                <p class="card-text">
+                                    {% if produit.description %}
+                                        {{ produit.description }}
+                                    {% endif %}
 
-                        </p>
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                {% endfor %}
+
             </div>
-            {% endfor %}
 
         </div>
-
-    </div>
     </div>
     <div class="container">
-    <div class="jumbotron m-3">
-        <h1 class="text-center m-4">Contacter {{ producteur.prenom }} {{ producteur.nom }}</h1>
-     <p class="text-center">   Afin de faciliter aux commerçants la prise de commande merci de préparer au préalable votre liste de produit</p>
-                    {% if producteur.contact == 'mail' %}
-        Merci de me contacter en priorité par mail à l'adresse :
-                        <b> <a href="mailto:{{ producteur.mail }}">{{ producteur.mail }}</a></b>
-                        <br>
-                        Si besoin mon numéro de téléphone est le <b>{{ producteur.telephone }}</b>
-                        {% else %}
-                        Merci de me contacter en priorité par téléphone au
-                            <b>{{ producteur.telephone }}</b>
-                            <br>
-                            Si besoin mon adresse mail est  <b> <a href="mailto:{{ producteur.mail }}">{{ producteur.mail }}</a></b>
-        {% endif %}
-    </div>
+        <div class="jumbotron m-3">
+            <h1 class="text-center m-4">Contacter {{ producteur.prenom }} {{ producteur.nom }}</h1>
+            <p class="text-center"> Afin de faciliter aux commerçants la prise de commande merci de préparer au
+                préalable votre liste de produit</p>
+            {% if producteur.contact == 'mail' %}
+                Merci de me contacter en priorité par mail à l'adresse :
+                <b> <a href="mailto:{{ producteur.mail }}">{{ producteur.mail }}</a></b>
+                <br>
+                Si besoin mon numéro de téléphone est le <b>{{ producteur.telephone }}</b>
+            {% else %}
+                Merci de me contacter en priorité
+                <b>{{ producteur.telephone }}</b>
+                <br>
+                Si besoin mon adresse mail est  <b> <a href="mailto:{{ producteur.mail }}">{{ producteur.mail }}</a></b>
+            {% endif %}
+        </div>
     </div>
 {% endblock %}

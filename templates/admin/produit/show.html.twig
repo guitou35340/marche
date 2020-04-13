@@ -3,6 +3,8 @@
 {% block title %}Produit{% endblock %}
 
 {% block body %}
+    <div class="container">
+        <div class="jumbotron">
     <h1>Produit</h1>
 
     <table class="table">
@@ -39,4 +41,6 @@
     <a href="{{ path('produit_edit', {'id': produit.id}) }}" class="btn btn-primary mt-2">editer</a>
 
     {{ include('admin/produit/_delete_form.html.twig') }}
+        </div>
+    </div>
 {% endblock %}

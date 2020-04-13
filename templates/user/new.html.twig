@@ -3,11 +3,12 @@
 {% block title %}Nouveau produit{% endblock %}
 
 {% block body %}
+    <div class="container">
     <div class="jumbotron mt-5">
     <h1>Créer un nouveau produit</h1>
 
     {{ include('user/_form.html.twig') }}
 
     <a href="{{ path('user_index') }}" class="btn btn-secondary">retour</a>
-    </div>
+    </div></div>
 {% endblock %}
